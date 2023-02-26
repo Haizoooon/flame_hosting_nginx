@@ -19,7 +19,7 @@
                     <div class="hero-inner">
 						<div class="hero-copy">
 	                        <h1 class="hero-title mt-0">Flame-Hosting Default Page</h1>
-	                        <p class="hero-paragraph">Dies ist eine Standardseite für <script>document.write(getHostname())</script>.</p>
+                            <p class="hero-paragraph">Dies ist eine Standardseite für <span style="font-weight: bold" id="hostname"></span>.</p>
 	                        <div class="hero-cta"><a class="button" href="https://cp.flame-hosting.de/service.php?id=">Verwalten</a></div>
 						</div>
                     </div>
@@ -30,7 +30,7 @@
 					<div class="cta-inner section-inner">
 						<h3 class="section-title mt-0">Du willst auch ein WebSpace?</h3>
 						<div class="cta-cta">
-							<a class="button button-primary button-wide-mobile" href="#">WebSpace bestellen</a>
+							<a class="button button-primary button-wide-mobile" href="https://flame-hosting.de/webspace">WebSpace bestellen</a>
 						</div>
 					</div>
 				</div>
@@ -38,8 +38,12 @@
         </main>
 
         <script>
+            getHostname()
             function getHostname(){
-                return (location.hostname.indexOf(':')>=0?'['+location.hostname+']':location.hostname);
+                let hostname = (location.hostname.indexOf(':')>=0?'['+location.hostname+']':location.hostname);
+                let span = document.getElementById('hostname');
+                let text = document.createTextNode(hostname);
+                span.appendChild(text);
             }
         </script>
 
